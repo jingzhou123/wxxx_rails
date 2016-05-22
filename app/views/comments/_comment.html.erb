@@ -4,7 +4,12 @@
 <p>
     <strong>body:</strong> <%= comment.body %>
 </p>
-<%= render partial: 'comments/form', locals: { comment: comment } %>
+<h2>reply</h2>
+<%= render partial: 'comments/form', locals: { parent_id: comment.id } %>
+<p>
+    <%= link_to 'Destroy Comment', [comment.article, comment],
+        method: :delete, data: { confirm: 'are you sure?' } %>
+</p>
 <%= render comment.replies if comment.replies.any? %>
 
 
