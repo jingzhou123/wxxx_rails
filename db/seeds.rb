@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+article = Article.create(title: 'one', body: 'na')
+parent_comment = Comment.create(commenter: 'parent', body: 'na')
+article.comments<<parent_comment
+child_comment = Comment.create(commenter: 'child', body: 'na', parent_id: parent_comment.id)
